@@ -11,13 +11,13 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: serif;
-  color: #377ba8;
+  font-family: 600 32px Arial;
+  color: #1b3954;
   margin: 1rem 0;
 }
 
 a {
-  color: #377ba8;
+  color: #1b3954;
 }
 
 hr {
@@ -30,6 +30,8 @@ nav {
   display: flex;
   align-items: center;
   padding: 0 0.5rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 nav h1 {
@@ -52,6 +54,8 @@ nav ul  {
 nav ul li a, nav ul li span, header .action {
   display: block;
   padding: 0.5rem;
+  font-family: 600 32px Arial;
+  text-decoration: none;
 }
 
 .content {
