@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Cálculo dos Parâmetros</h2>
+  <form action="" method="POST">
+    {{ forms_tab.csrf_token }}
+      <div class="form-group">
+        <label>Nome</label>
+        {{ forms_tab.name(class="form-control", placeholder="nome completo") }}
+      </div>
+      <div class="form-group">
+        <label>Altura</label>
+        {{ forms_tab.height(class="form-control", placeholder="altura em metros") }}
+      </div>
+      <div class="form-group">
+        <label>Peso</label>
+        {{ forms_tab.weight(class="form-control", placeholder="peso em kgs") }}
+      </div>
+      <div class="form-group">
+     <label> Gênero </label>
+     {{ forms_tab.gender(class="form-control") }}
+     </div>
+     <div class="form-group">
+   <button type="submit" class="btn btn-default">CALCULAR</button>
+    </form>
+{% endblock %}
