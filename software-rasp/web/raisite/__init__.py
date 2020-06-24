@@ -28,7 +28,7 @@ def create_app(test_config=None):
     @app.route('/hello')
     def hello():
         return 'Hello World!'
-
+    app.run(port=8085, host='127.0.0.1', debug=True, threaded=True) 
     from . import db
     db.init_app(app)
 
