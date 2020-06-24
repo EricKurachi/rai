@@ -5,6 +5,9 @@ from werkzeug.exceptions import abort
 
 from raisite.auth import login_required
 from raisite.db import get_db
+from raisite.forms_tab import TabForm
+from flask import render_template, url_for, redirect
+
 
 bp = Blueprint('blog', __name__)
 
@@ -23,27 +26,21 @@ def index():
 @bp.route('/create', methods=('GET', 'POST'))
 @login_required
 def create():
-    if request.method == 'POST':
-        title = request.form['title']
-        body = request.form['body']
-        error = None
+          forms_tab = TabForm()
+          if forms_tab.validate_on_submit():
+             patient_weight = forms_tab.weight.data
+             patient_height = forms_tab.height.data
+             patient_gender = forms_tab.gender.data
+             if patient_gender == 'fem':
+                 pid_patient = 45.5+0.91*(100*patient_height-152.4)
+             else:
+                 pid_patient = 50+0.91*(100*patient_height-152.4)
+             print(pid_patient)
+          else:
+              print(forms_tab.errors)
+          return render_template('blog/tab.html', forms_tab=forms_tab)
 
-        if not title:
-            error = 'Title is required.'
 
-        if error is not None:
-            flash(error)
-        else:
-            db = get_db()
-            db.execute(
-                'INSERT INTO post (title, body, author_id)'
-                ' VALUES (?, ?, ?)',
-                (title, body, g.user['id'])
-            )
-            db.commit()
-            return redirect(url_for('blog.index'))
-
-    return render_template('blog/create.html')
 
 
 def get_post(id, check_author=True):
