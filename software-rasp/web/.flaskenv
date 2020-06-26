@@ -1,4 +1,4 @@
-export FLASK_APP=raisite
-export FLASK_ENV=development
+FLASK_APP=raisite
+FLASK_ENV=develompement
 FLASK_RUN_HOST=127.0.0.1
 FLASK_RUN_PORT=5001
