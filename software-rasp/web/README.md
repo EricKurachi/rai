@@ -1,7 +1,7 @@
 # Como testar 
 
 No terminal, dentro da pasta rai/software-rasp/web digite os seguintes comandos:
-* $ python3 -m pip install python-dotenv (Instala o pacote dotenv)
+* $ python3 -m pip install python-dotenv (Instala o pacote dotenv-necessário caso ainda não possua o pacote instalado)
 * $ python3 -m flask init-db (opcional, caso queira iniciar um banco de dados vazio)
 * $ python3 -m flask run ou somente flask run
 
