@@ -33,6 +33,11 @@ def create_app(test_config=None):
     @app.route('/parametros', methods=('GET', 'POST'))
     def parametros():
         parametros = ParamForm()
+        if parametros.validate_on_submit():
+             rai_volume = parametros.inspiration_volume
+             print(rai_volume)
+        else:
+             print(parametros.errors)
         return render_template('blog/param.html', parametros=parametros)
 
     from . import db
