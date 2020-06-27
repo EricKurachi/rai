@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Parâmetros Respirador</h2>
+  <form action="" method="POST">
+    {{ parametros.csrf_token }}
+      <div class="form-group">
+        <label>Volume Inspirado</label>
+        {{ parametros.inspiration_volume(class="form-control", placeholder="unidade de medida") }}
+      </div>
+      <div class="form-group">
+        <label>Tempo de Inspiração</label>
+        {{ parametros.inspiration_time(class="form-control", placeholder="unidade de medida") }}
+      </div>
+      <div class="form-group">
+        <label>Pressão Máxima de Inspiração</label>
+        {{ parametros.inspiration_pressure(class="form-control", placeholder="unidade de medida") }}
+      </div>
+      <div class="form-group">
+        <label>Fração de Oxigênio</label>
+        {{ parametros.o2_fraction(class="form-control", placeholder="unidade de medida") }}
+      </div>
+      <div class="form-group">
+     <label>Modo de Operação</label>
+     {{ parametros.operation_mode(class="form-control") }}
+     </div>
+     <div class="form-group">
+   <button type="submit" class="btn btn-default">CALCULAR</button>
+    </form>
+{% endblock %}

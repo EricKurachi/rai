@@ -1,5 +1,7 @@
 import os
 from flask import Flask
+from raisite.parametros import ParamForm
+from flask import render_template, url_for, redirect
 
 # creates the Flask instance
 def create_app(test_config=None):
@@ -27,6 +29,12 @@ def create_app(test_config=None):
     @app.route('/hello')
     def hello():
         return 'Hello World!'
+
+    @app.route('/parametros', methods=('GET', 'POST'))
+    def parametros():
+        parametros = ParamForm()
+        return render_template('blog/param.html', parametros=parametros)
+
     from . import db
     db.init_app(app)
 
